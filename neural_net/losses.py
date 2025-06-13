@@ -21,3 +21,10 @@ def grad_cross_entropy(output, target):
     epsilon = 1e-15
     output = np.clip(output, epsilon, 1 - epsilon)
     return - (target / output) + ((1 - target) / (1 - output))
+
+def categorical_cross_entropy(output, target):
+    epsilon = 1e-15
+    return -np.sum(target * np.log(output+epsilon))
+
+def grad_categorical_cross_entropy(output, target):
+    return output - target

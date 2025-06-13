@@ -30,7 +30,7 @@ def main():
         trainer = Trainer(network, x_train, targets, learning_rate=lr, nb_epochs=1000, epsilon=0.0001, plot=True, verbose=False)
         print(f"lr = {lr}")
         trainer.train()
-        save_network("networks/spirals.pkl", network)
+    save_network("networks/spirals.pkl", network)
 
     plt.savefig('plots/spirals/losses.png')
     plt.figure()
