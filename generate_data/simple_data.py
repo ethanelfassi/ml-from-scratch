@@ -138,3 +138,18 @@ def generate_patterns_data(nb_img=1000, image_size=4, n_labels=3):
         targets.append([label])
 
     return np.array(x), np.array(targets)
+
+def generate_calc_data(nb_points=1000, type="sum", norm=True):
+    x, targets = [], []
+    if not norm:
+        c = 1
+    else:
+        c = 10
+    for _ in range(nb_points):
+        x1, x2 = np.random.randint(1, 5, size=2) / c
+        x.append((x1, x2))
+        if type=="product":
+            targets.append(x1 * x2)
+        else:
+            targets.append(x1 + x2) 
+    return np.array(x), np.array(targets)*c

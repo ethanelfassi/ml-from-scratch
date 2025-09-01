@@ -6,7 +6,7 @@ class Neuron:
     """
     def __init__(self, nb_inputs:int, activation, grad_activation):
         self.biais = np.random.randn() * 0.1
-        self.weights = np.random.randn(nb_inputs) 
+        self.weights = np.random.randn(nb_inputs) * 0.001
         self.activation = activation
         self.grad_activation = grad_activation
         self.grad_biais = 0

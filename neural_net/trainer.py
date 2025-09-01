@@ -28,8 +28,8 @@ class Trainer:
             loss_epoch = total_loss/len(self.x)
             losses.append(loss_epoch)
 
-            if self.verbose:
-                print(f"Epoch {epoch+1} - outputs: {outputs} - Loss: {total_loss / len(self.x)}")
+            if (self.verbose) and (epoch%100==0):
+                print(f"Epoch {epoch+1} - Loss: {total_loss / len(self.x)}")
 
             if loss_epoch < self.epsilon:
                 break
