@@ -50,7 +50,7 @@ def main():
         grad_loss=grad_categorical_cross_entropy
         )
 
-        trainer = Trainer(network, x_train, targets_train, learning_rate=lr, nb_epochs=400, epsilon=0.0001, plot=True, verbose=False)
+        trainer = Trainer(network, x_train, targets_train, learning_rate=lr, nb_epochs=200, epsilon=0.01, plot=True, verbose=False)
         print(f"lr = {lr}")
         trainer.train()
     save_network("networks/patterns.pkl", network)
@@ -58,7 +58,7 @@ def main():
     plt.savefig("plots/patterns/losses.png")
 
 
-    x_test, y_test = generate_patterns_data(image_size=img_size, n_labels=nb_classes)
+    x_test, y_test = generate_patterns_data(nb_img=10000,image_size=img_size, n_labels=nb_classes)
     plot_crosses_multi_classes(network, x_train, img_size, "plots/patterns/patterns_train.png")
     plot_crosses_multi_classes(network, x_test, img_size, "plots/patterns/patterns_test.png")
 
